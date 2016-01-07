@@ -6,7 +6,7 @@ metadata:
     name: hello-node
     app: hello-node
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     name: hello-node
   template:
@@ -17,13 +17,5 @@ spec:
       containers:
       - name: worker
         image: gcr.io/fukudak-playground/hello-node
-        env:
-        - name: GET_HOSTS_FROM
-          value: dns
-          # If your cluster config does not include a dns service, then to
-          # instead access an environment variable to find the master
-          # service's host, comment out the 'value: dns' line above, and
-          # uncomment the line below.
-          # value: env
         ports:
         - containerPort: 8080

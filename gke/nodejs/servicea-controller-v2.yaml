@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: servicea-v2
+  labels:
+    name: servicea
+    app: servicea
+spec:
+  replicas: 2
+  selector:
+    name: servicea
+    version: v2
+  template:
+    metadata:
+      labels:
+        name: servicea
+        version: v2
+    spec:
+      containers:
+      - name: worker
+        image: asia.gcr.io/fukudak-playground/servicea:v2
+        ports:
+        - containerPort: 8080
