@@ -1,8 +1,8 @@
 var http = require('http');
 
 var handleRequest = function(request, response) {
-  response.writeHead(200);
-  response.end("Hello World!");
+  response.writeHead(200,{"Content-Type": "text/plain"});
+  response.end("Hello ServiceA! v1");
 }
 
 var www = http.createServer(handleRequest);
